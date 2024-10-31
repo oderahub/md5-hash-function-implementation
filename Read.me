@@ -1,0 +1,36 @@
+##Implementation Details
+The MD5 algorithm consists of several key steps:
+
+##Initialization
+Four 32-bit variables (A, B, C, D) are initialized to specific constant values.
+
+##Padding
+The input message is padded to ensure its length is congruent to 448 modulo 512.
+
+##Processing
+The padded message is divided into 512-bit blocks.
+Each block is processed through a series of operations.
+
+##Finalization
+After processing all blocks, the final hash value is computed by adding the values of A, B, C, and D together and converting them to a hexadecimal string.
+
+##Key Functions
+rotateLeft
+Shifts the bits of a number to the left by a specified number of positions, wrapping around bits that overflow.
+
+#add
+Adds two 32-bit integers, ensuring that overflow is handled correctly.
+
+f, g, h, i
+Perform specific operations on the variables and words during each iteration of the main loop.
+
+##How It Works
+The calculateMD5 function takes a string input and converts it to bytes.
+The input is padded according to MD5 specifications.
+The padded input is processed in 64-byte chunks.
+For each chunk, the updateBlock function applies the MD5 algorithm steps:
+Divides the chunk into 16 words
+Applies four rounds of transformations
+Updates the hash state variables (A, B, C, D)
+After processing all chunks, the final hash is calculated and converted to a hexadecimal string.
+This implementation follows the MD5 specification closely, ensuring accurate and efficient hashing of input messages.
